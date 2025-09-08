@@ -52,8 +52,8 @@ Example:
 ---
 
 ## 📂 Project Structure
-pgsql
 
+```
 .
 ├── .env                 # Environment variables (API keys, configs)
 ├── .gitignore           # Ignored files & folders
@@ -62,7 +62,7 @@ pgsql
 ├── requirements.txt     # Python dependencies
 ├── modules/             # Custom modules (retriever, LLM wrapper, etc.)
 └── README.md            # Project documentation
-
+```
 ---
 ## ▶️ Usage
 Run the RAG pipeline
