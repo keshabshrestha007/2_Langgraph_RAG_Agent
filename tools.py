@@ -6,6 +6,7 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_pinecone import PineconeVectorStore
 from pinecone import ServerlessSpec,Pinecone
+import streamlit as st
 
 load_dotenv()
 """
@@ -75,3 +76,4 @@ def retriever_tool(pdf_dir):
     return vectorstore.as_retriever(search_type="mmr", search_kwargs={"k": 3})
 
       
+
