@@ -8,11 +8,16 @@ from langchain_pinecone import PineconeVectorStore
 from pinecone import ServerlessSpec,Pinecone
 
 load_dotenv()
-
+"""
 if os.getenv("PINECONE_API_KEY") is None:
     raise ValueError("PINECONE_API_KEY environment variable is not set.")
 
 pinecone_api_key = os.getenv("PINECONE_API_KEY")
+"""
+if st.secrets["PINECONE_API_KEY"] is None:
+    raise ValueError("PINECONE_API_KEY  variable is not set in streamlit->secrets.toml")
+
+pinecone_api_key = st.secrets["PINECONE_API_KEY"]
 
 def retriever_tool(pdf_dir):
     index_name = "project-1-multistep-rag"
@@ -68,4 +73,5 @@ def retriever_tool(pdf_dir):
    
 
     return vectorstore.as_retriever(search_type="mmr", search_kwargs={"k": 3})
+
       
